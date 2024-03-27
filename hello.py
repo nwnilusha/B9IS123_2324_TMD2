@@ -1,6 +1,7 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2759
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-}
+from flask import Flask
+app = Flask(__name__)
+@app.route("/")#URL leading to method
+def hello(): # Name of the method
+ return("Hello World!") #indent this line
+if __name__ == "__main__":
+ app.run(host='0.0.0.0', port='8080') # indent this line
