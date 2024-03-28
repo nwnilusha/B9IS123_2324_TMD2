@@ -2,6 +2,6 @@ from flask import Flask
 app = Flask(__name__)
 @app.route("/")#URL leading to method
 def hello(): # Name of the method
- return("Hello Nilusha, It is a beautiful day! {datetime.now().strftime("%Y-%m-%d")}") #indent this line
+ return("Hello Nilusha, It is a beautiful day! {datetime.now().strftime(\"%Y-%m-%d\")}") this line
 if __name__ == "__main__":
  app.run(host='0.0.0.0', port='8080') # indent this line
