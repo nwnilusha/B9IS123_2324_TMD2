@@ -1,0 +1,73 @@
+
+{% extends 'base-sub.html' %}
+
+{% block header %}
+  <h1>{% block title %}Manage DIMS Report{% endblock %}</h1>
+{% endblock %}
+
+{% block header1 %}
+    <h1>DIMS Reports</h1>
+{% endblock %}
+
+{% block page_content_1 %}
+        <div class="report-container" id="test1">
+            <div class="box-search">
+                <h2>Device Allocation and Destribution Reports</h2>                
+                <div class="report-search" id="div-form">
+                    <form id="report-form">
+                        <label for="device_catagory">Device Catagory:</label>                
+                        <select id="device_catagory" class="search-data" name="device_catagory" required onchange="getDeviceNamesByCategory(this.value)">
+                            <option value="all">All</option>
+                            {% for device_catagory in device_catagory %}
+                            <option value="{{ device_catagory }}">{{ device_catagory }}</option>
+                            {% endfor %}
+                        </select>&nbsp;
+                        <label for="device_name">Device Name:</label>
+                        <select id="device_name" class="search-data" name="device_name" required>
+                            <option value="all">All</option>
+                            {% for device_name in device_name %}
+                            <option value="{{ device_name }}">{{ device_name }}</option>
+                            {% endfor %}
+                        </select>&nbsp;                        
+                        
+                        <label for="employee">Employee:</label>
+                        <select id="employee" class="search-data" name="employee" optional>
+                            <option value="0">All</option>
+                            {% for employee in employee %}
+                            <option value="{{ employee.id }}">{{ employee.name }}</option>
+                            {% endfor %}
+                        </select>
+                        </select>&nbsp;
+                        <label for="project">Project:</label>
+                        <select id="project" class="search-data" name="project" optional>
+                            <option value="0">All</option>
+                            {% for project in projects %}
+                            <option value="{{ project.id }}">{{ project.name }}</option>
+                            {% endfor %}
+                        </select>
+                        </select>&nbsp;
+                        <button type="submit" class="btn2">Generate Report</button>                    
+                    </form>
+                </div>
+                <div class="report-search" id="report-search"></div>
+                <div class="box-report" id="box-report-1">                    
+                    <table id="report-table"></table>
+                </div>
+            </div>                        
+        </div>
+
+{% endblock %}
+
+{% block page_content_2 %}
+    <div class="sub-card1">
+        <h2>View Devices</h2>
+        <p>View the list of devices currently registered in the system:</p>
+        <ul>
+            <li>Device 1</li>
+            <li>Device 2</li>
+            <li>Device 3</li>
+            <!-- Add more device entries as needed -->
+        </ul>
+    </div>
+{% endblock %}
+
